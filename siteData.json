@@ -153,6 +153,14 @@
       "headingKeywords": {}
     },
     {
+      "src": "team/longng.md",
+      "title": "Long's Project Portfolio Page",
+      "headings": {
+        "project-advanced-and-amp-efficient-a-and-amp-e": "Project: Advanced&amp;Efficient (A&amp;E)"
+      },
+      "headingKeywords": {}
+    },
+    {
       "src": "tutorials/AddRemark.md",
       "title": "Tutorial: Adding a command",
       "headings": {

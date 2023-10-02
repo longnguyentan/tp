@@ -7,11 +7,11 @@
       "headings": {
         "about-us": "About Us",
         "project-team": "Project team",
-        "john-doe": "John Doe",
-        "jane-doe": "Jane Doe",
-        "johnny-doe": "Johnny Doe",
-        "jean-doe": "Jean Doe",
-        "james-doe": "James Doe"
+        "long-nguyen-tan": "Long Nguyen Tan",
+        "aaron-joel-tan-tze-ern": "Aaron Joel Tan Tze Ern",
+        "lee-thien-my": "Lee Thien My",
+        "mehta-riya-mehulbhai": "Mehta Riya Mehulbhai",
+        "wu-jingya": "Wu Jingya"
       },
       "headingKeywords": {}
     },
@@ -132,6 +132,15 @@
       "title": "",
       "headings": {
         "addressbook-level-3": "AddressBook Level-3"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "team/aaronjt1.md",
+      "headings": {
+        "aaronjt1-s-project-portfolio-page": "AaronJT1's Project Portfolio Page",
+        "project-advanced-and-amp-efficient-a-and-amp-e": "Project: Advanced&amp;Efficient (A&amp;E)",
+        "contribution": "Contribution"
       },
       "headingKeywords": {}
     },

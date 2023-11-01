@@ -51,7 +51,10 @@
         "storage-component": "Storage component",
         "common-classes": "Common classes",
         "implementation": "Implementation",
+        "add-patient-feature": "Add patient feature",
         "view-patient-feature": "View patient feature",
+        "edit-record-feature": "Edit Record feature",
+        "assign-department-feature": "Assign department feature",
         "proposed-undo-redo-feature": "[Proposed] Undo/redo feature",
         "proposed-data-archiving": "[Proposed] Data archiving",
         "documentation-logging-testing-configuration-dev-ops": "Documentation, logging, testing, configuration, dev-ops",
@@ -64,7 +67,12 @@
         "appendix-instructions-for-manual-testing": "Appendix: Instructions for manual testing",
         "launch-and-shutdown": "Launch and shutdown",
         "deleting-a-patient": "Deleting a patient",
-        "saving-data": "Saving data"
+        "editing-a-patient": "Editing a patient",
+        "class-birthday-and-testing": "Class Birthday and Testing",
+        "explanation": "Explanation:",
+        "saving-data": "Saving data",
+        "explanation-2": "Explanation:",
+        "class-record-json-storage-format": "Class Record JSON Storage Format"
       },
       "headingKeywords": {}
     },
@@ -125,9 +133,7 @@
         "editing-the-data-file": "Editing the data file",
         "archiving-data-files-coming-in-v2-0": "Archiving data files [coming in v2.0]",
         "faq": "FAQ",
-        "coming-soon-2": "[coming soon]",
         "known-issues": "Known issues",
-        "coming-soon-3": "[coming soon]",
         "command-summary": "Command summary"
       },
       "headingKeywords": {}

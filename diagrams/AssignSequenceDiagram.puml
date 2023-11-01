@@ -1,0 +1,41 @@
+@startuml
+!include style.puml
+skinparam ArrowFontStyle plain
+skinparam sequenceReferenceBackgroundColor white
+
+box Logic LOGIC_COLOR_T1
+participant "a:AssignCommand" as AssignCommand LOGIC_COLOR
+end box
+
+box Model MODEL_COLOR_T1
+participant ":Model" as Model MODEL_COLOR
+participant "assignedPatient:Patient" as Patient MODEL_COLOR
+end box
+
+[-> AssignCommand : execute()
+activate AssignCommand
+
+ref over AssignCommand, Model : Get Patient with IC Number from list
+
+AssignCommand -> AssignCommand :createAssignedPatient
+activate AssignCommand
+
+create Patient
+AssignCommand -> Patient
+activate Patient
+
+Patient --> AssignCommand: assignedPatient
+deactivate Patient
+
+AssignCommand --> AssignCommand
+deactivate AssignCommand
+
+AssignCommand -[hidden]-> Model
+
+ref over AssignCommand, Model : Replace old patient with assignedPatient
+
+[<-- AssignCommand : result
+deactivate AssignCommand
+<-[hidden]- AssignCommand
+destroy AssignCommand
+@enduml

@@ -1,0 +1,45 @@
+@startuml
+!include style.puml
+skinparam ArrowFontStyle plain
+
+box Logic LOGIC_COLOR_T1
+participant ":LogicManager" as LogicManager LOGIC_COLOR
+participant ":AddressBookParser" as AddressBookParser LOGIC_COLOR
+participant "deleteParser:DeleteCommandParser" as DeleteCommandParser LOGIC_COLOR
+participant "icNumber:IcNumber" as icNumber LOGIC_COLOR
+participant "delete:DeleteCommand" as DeleteCommand LOGIC_COLOR
+end box
+
+box Model MODEL_COLOR_T1
+participant ":Model" as Model MODEL_COLOR_T1
+end box
+
+[-> LogicManager : execute("delete i/T0000000A")]
+activate LogicManager
+
+LogicManager -> AddressBookParser : parseCommand("delete i/T0000000A")
+activate AddressBookParser
+
+create DeleteCommandParser
+AddressBookParser -> DeleteCommandParser
+activate DeleteCommandParser
+
+create IcNumber
+DeleteCommandParser -> IcNumber
+activate IcNumber
+IcNumber --> DeleteCommandParser:deleteCommand
+deactivate IcNumber
+
+create DeleteCommand
+DeleteCommandParser -> DeleteCommand:deleteCommand
+activate deleteCommand
+
+DeleteCommand --> DeleteCommandParser:deleteCommand
+deactivate DeleteCommand
+DeleteCommandParser --> AddressBookParser:parsedDeleteCommand
+deactivate DeleteCommandParser
+
+AddressBookParser --> LogicManager:parsedDeleteCommand
+deactivate AddressBookParser
+
+@enduml

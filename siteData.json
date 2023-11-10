@@ -41,6 +41,7 @@
       "title": "Developer Guide",
       "headings": {
         "advanced-and-amp-efficient-a-and-amp-e-developer-guide": "Advanced&amp;Efficient (A&amp;E) Developer Guide",
+        "overview": "Overview",
         "acknowledgements": "Acknowledgements",
         "setting-up-getting-started": "Setting up, getting started",
         "design": "Design",
@@ -66,13 +67,22 @@
         "glossary": "Glossary",
         "appendix-instructions-for-manual-testing": "Appendix: Instructions for manual testing",
         "launch-and-shutdown": "Launch and shutdown",
+        "adding-a-patient": "Adding a patient",
+        "viewing-a-patient": "Viewing a patient",
         "deleting-a-patient": "Deleting a patient",
         "editing-a-patient": "Editing a patient",
         "class-birthday-and-testing": "Class Birthday and Testing",
         "explanation": "Explanation:",
+        "editing-a-patient-record": "Editing a patient record",
+        "sorting-patients": "Sorting patients",
+        "finding-a-patient-by-name": "Finding a patient by name",
+        "assigning-a-patient-to-a-department": "Assigning a patient to a department",
+        "undoing-a-command": "Undoing a command",
+        "redoing-a-command": "Redoing a command",
         "saving-data": "Saving data",
         "explanation-2": "Explanation:",
-        "class-record-json-storage-format": "Class Record JSON Storage Format"
+        "class-record-json-storage-format": "Class Record JSON Storage Format",
+        "appendix-planned-enhancements": "Appendix: Planned Enhancements"
       },
       "headingKeywords": {}
     },
@@ -117,24 +127,32 @@
       "title": "User Guide",
       "headings": {
         "advanced-and-amp-efficient-a-and-amp-e-user-guide": "Advanced&amp;Efficient (A&amp;E) User Guide",
-        "quick-start": "Quick start",
+        "table-of-contents": "Table of Contents",
+        "navigating-the-user-guide": "Navigating the user guide",
         "coming-soon": "[coming soon]",
+        "quick-start": "Quick start",
         "features": "Features",
-        "viewing-help-help": "Viewing help : help",
+        "viewing-help-help": "Viewing help: help",
         "listing-all-patients-list": "Listing all patients: list",
         "adding-a-patient-add": "Adding a patient: add",
-        "viewing-a-patient-view": "Viewing a patient : view",
+        "viewing-a-patient-view": "Viewing a patient: view",
         "editing-a-patient-edit": "Editing a patient: edit",
         "deleting-a-patient-delete": "Deleting a patient: delete",
+        "undoing-a-command-undo": "Undoing a command: undo",
+        "redoing-a-command-redo": "Redoing a command: redo",
+        "finding-a-patient-by-name-find": "Finding a patient by name: find",
+        "sorting-the-patient-list-sort": "Sorting the patient list: sort",
         "editing-a-patient-record-record": "Editing a patient record: record",
-        "assigning-a-patient-to-a-department-assign": "Assigning a patient to a department : assign",
-        "exiting-the-program-exit": "Exiting the program : exit",
+        "assigning-a-patient-to-a-department-assign": "Assigning a patient to a department: assign",
+        "clearing-all-entries-clear": "Clearing all entries: clear",
+        "exiting-the-program-exit": "Exiting the program: exit",
         "saving-the-data": "Saving the data",
         "editing-the-data-file": "Editing the data file",
-        "archiving-data-files-coming-in-v2-0": "Archiving data files [coming in v2.0]",
         "faq": "FAQ",
         "known-issues": "Known issues",
-        "command-summary": "Command summary"
+        "when-using-multiple-screens-if-you-move-the-application-to-a-secondary-screen-and-later-switch-to-using-only-the-primary-screen-the-gui-will-open-off-screen-the-remedy-is-to-delete-the-preferences-json-file-created-by-the-application-before-running-the-application-again": "When using multiple screens, if you move the application to a secondary screen, and later switch to using only the\nprimary screen, the GUI will open off-screen. The remedy is to delete the preferences.json file created by the\napplication before running the application again.\n\n",
+        "command-summary": "Command summary",
+        "appendix-departments": "Appendix: Departments"
       },
       "headingKeywords": {}
     },
@@ -142,7 +160,7 @@
       "src": "index.md",
       "title": "",
       "headings": {
-        "addressbook-level-3": "AddressBook Level-3"
+        "advanced-and-amp-efficient-a-and-amp-e": "Advanced&amp;Efficient (A&amp;E)"
       },
       "headingKeywords": {}
     },
@@ -151,7 +169,16 @@
       "headings": {
         "aaronjt1-s-project-portfolio-page": "AaronJT1's Project Portfolio Page",
         "project-advanced-and-amp-efficient-a-and-amp-e": "Project: Advanced&amp;Efficient (A&amp;E)",
-        "contribution": "Contribution"
+        "contribution": "Contribution",
+        "features-implemented": "Features implemented",
+        "view-feature-119": "View Feature #119",
+        "enhancement-to-existing-features": "Enhancement to existing features:",
+        "enhanced-add-feature": "Enhanced Add Feature",
+        "enhanced-exception-error-messages-for-users": "Enhanced exception / error messages for users",
+        "enhanced-modelmanager-128": "Enhanced ModelManager #128",
+        "enhanced-testing-utilities": "Enhanced testing utilities",
+        "contributions-to-team-based-task": "Contributions to team-based task:",
+        "review-mentoring-contributions": "Review / mentoring contributions:"
       },
       "headingKeywords": {}
     },
@@ -191,7 +218,12 @@
       "src": "team/wujy28.md",
       "headings": {
         "jingya-s-project-portfolio-page": "Jingya's Project Portfolio Page",
-        "project-advanced-and-amp-efficient-a-and-amp-e": "Project: Advanced&amp;Efficient (A&amp;E)"
+        "project-advanced-and-amp-efficient-a-and-amp-e": "Project: Advanced&amp;Efficient (A&amp;E)",
+        "new-features": "New Features",
+        "enhancements-to-existing-features": "Enhancements To Existing Features",
+        "contributions-to-team-based-tasks": "Contributions to team-based tasks",
+        "review-mentoring-contributions": "Review/mentoring contributions",
+        "contributions-to-documentation": "Contributions to documentation"
       },
       "headingKeywords": {}
     },

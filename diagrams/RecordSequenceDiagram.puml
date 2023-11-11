@@ -1,0 +1,101 @@
+@startuml
+!include style.puml
+skinparam ArrowFontStyle plain
+skinparam sequenceReferenceBackgroundColor white
+
+box Logic LOGIC_COLOR_T1
+participant ":LogicManager" as LogicManager LOGIC_COLOR
+participant ":AddressBookParser" as AddressBookParser LOGIC_COLOR
+participant ":RecordCommandParser" as RecordCommandParser LOGIC_COLOR
+participant "e:EditRecordDescriptor" as EditRecordDescriptor LOGIC_COLOR
+participant "r:RecordCommand" as RecordCommand LOGIC_COLOR
+participant ":CommandResult" as CommandResult LOGIC_COLOR
+end box
+
+box Model MODEL_COLOR_T1
+participant ":Model" as Model MODEL_COLOR
+end box
+
+[-> LogicManager : execute("input")
+activate LogicManager
+
+note left
+"input" here refers to "record i/T0201234A
+o/Broken Arm di/Hairline fracture tp/Cast for 2 days"
+end note
+
+LogicManager -> AddressBookParser : parseCommand("input")
+activate AddressBookParser
+
+create RecordCommandParser
+AddressBookParser -> RecordCommandParser
+activate RecordCommandParser
+
+RecordCommandParser --> AddressBookParser
+deactivate RecordCommandParser
+
+AddressBookParser -> RecordCommandParser : parse("args")
+activate RecordCommandParser
+
+note right of AddressBookParser
+"args" here refers to
+"i/T0201234A o/Broken
+Arm di/Hairline fracture
+tp/Cast for 2 days"
+end note
+
+create EditRecordDescriptor
+RecordCommandParser -> EditRecordDescriptor
+activate EditRecordDescriptor
+
+EditRecordDescriptor --> RecordCommandParser : e
+deactivate EditRecordDescriptor
+
+ref over EditRecordDescriptor : Set values of e with parsed input values
+
+create RecordCommand
+RecordCommandParser -> RecordCommand
+activate RecordCommand
+
+RecordCommand --> RecordCommandParser : r
+deactivate RecordCommand
+
+RecordCommandParser --> AddressBookParser : r
+deactivate RecordCommandParser
+
+RecordCommandParser -[hidden]-> AddressBookParser
+destroy RecordCommandParser
+
+AddressBookParser --> LogicManager : r
+deactivate AddressBookParser
+
+LogicManager -> RecordCommand : execute()
+activate RecordCommand
+
+ref over RecordCommand, Model : Get Patient and Record to edit
+
+RecordCommand -> RecordCommand : createEditedRecord()
+activate RecordCommand
+
+ref over RecordCommand, EditRecordDescriptor : Update Record fields with values stored in EditRecordDescriptor object
+
+RecordCommand --> RecordCommand
+deactivate RecordCommand
+
+RecordCommand -> Model : updateFilteredPatientList()
+activate Model
+deactivate Model
+
+create CommandResult
+RecordCommand -> CommandResult
+activate CommandResult
+
+CommandResult --> RecordCommand
+deactivate CommandResult
+
+RecordCommand --> LogicManager : result
+deactivate RecordCommand
+
+[<--LogicManager
+deactivate LogicManager
+@enduml

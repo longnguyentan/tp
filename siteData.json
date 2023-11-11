@@ -57,7 +57,7 @@
         "edit-record-feature": "Edit Record feature",
         "assign-department-feature": "Assign department feature",
         "proposed-undo-redo-feature": "[Proposed] Undo/redo feature",
-        "proposed-data-archiving": "[Proposed] Data archiving",
+        "data-archiving": "Data archiving",
         "documentation-logging-testing-configuration-dev-ops": "Documentation, logging, testing, configuration, dev-ops",
         "appendix-requirements": "Appendix: Requirements",
         "product-scope": "Product scope",
@@ -77,7 +77,6 @@
         "undoing-and-redoing-a-command": "Undoing and Redoing a command",
         "saving-data": "Saving data",
         "explanation": "Explanation:",
-        "class-record-json-storage-format": "Class Record JSON Storage Format",
         "appendix-planned-enhancements": "Appendix: Planned Enhancements"
       },
       "headingKeywords": {}

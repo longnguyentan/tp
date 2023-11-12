@@ -3,8 +3,14 @@
 skinparam ArrowFontStyle plain
 skinparam sequenceReferenceBackgroundColor white
 
+
 box Logic LOGIC_COLOR_T1
+participant ":LogicManager" as LogicManager LOGIC_COLOR
+participant ":AddressBookParser" as AddressBookParser LOGIC_COLOR
+participant ":AssignCommandParser" as AssignCommandParser LOGIC_COLOR
 participant "a:AssignCommand" as AssignCommand LOGIC_COLOR
+participant "ParserUtil" as ParserUtil <<class>> LOGIC_COLOR
+participant ":CommandResult" as CommandResult LOGIC_COLOR
 end box
 
 box Model MODEL_COLOR_T1
@@ -12,10 +18,44 @@ participant ":Model" as Model MODEL_COLOR
 participant "assignedPatient:Patient" as Patient MODEL_COLOR
 end box
 
-[-> AssignCommand : execute()
+[-> LogicManager : execute("assign \ni/t0123456s d/cardiology")
+activate LogicManager
+
+LogicManager -> AddressBookParser : parseCommand("assign \ni/t0123456s d/cardiology")
+activate AddressBookParser
+
+create AssignCommandParser
+AddressBookParser -> AssignCommandParser
+activate AssignCommandParser
+
+AssignCommandParser --> AddressBookParser
+deactivate AssignCommandParser
+
+AddressBookParser -> AssignCommandParser : parse("i/t0123456s d/cardiology")
+activate AssignCommandParser
+
+ref over AssignCommandParser, ParserUtil : Create IcNumber and AssignedDepartment objects from string input
+
+create AssignCommand
+AssignCommandParser -> AssignCommand
 activate AssignCommand
 
-ref over AssignCommand, Model : Get Patient with IC Number from list
+AssignCommand --> AssignCommandParser : a
+deactivate AssignCommand
+
+AssignCommandParser --> AddressBookParser : a
+deactivate AssignCommandParser
+'Hidden arrow to position the destroy marker below the end of the activation bar.
+AssignCommandParser -[hidden]-> AddressBookParser
+destroy AssignCommandParser
+
+AddressBookParser --> LogicManager : a
+deactivate AddressBookParser
+
+LogicManager -> AssignCommand : execute()
+activate AssignCommand
+
+AssignCommand ->  Model : Get Patient with IC number from patient list
 
 AssignCommand -> AssignCommand :createAssignedPatient
 activate AssignCommand
@@ -24,18 +64,28 @@ create Patient
 AssignCommand -> Patient
 activate Patient
 
-Patient --> AssignCommand: assignedPatient
+Patient --> AssignCommand
 deactivate Patient
 
 AssignCommand --> AssignCommand
 deactivate AssignCommand
 
+AssignCommand -> Model : Replace existing patient with assignedPatient
+
 AssignCommand -[hidden]-> Model
 
-ref over AssignCommand, Model : Replace old patient with assignedPatient
+create CommandResult
+AssignCommand -> CommandResult
+activate CommandResult
 
-[<-- AssignCommand : result
+CommandResult --> AssignCommand
+deactivate CommandResult
+
+AssignCommand --> LogicManager: result
 deactivate AssignCommand
 <-[hidden]- AssignCommand
 destroy AssignCommand
+
+[<--LogicManager
+deactivate LogicManager
 @enduml

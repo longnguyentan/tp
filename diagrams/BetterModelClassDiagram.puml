@@ -1,21 +1,30 @@
 @startuml
-!include style.puml
+!include styleClass.puml
 skinparam arrowThickness 1.1
 skinparam arrowColor MODEL_COLOR
-skinparam classBackgroundColor MODEL_COLOR
+skinparam ClassHeaderBackgroundColor MODEL_COLOR
 
-AddressBook *-right-> "1" UniquePersonList
+Class Patient {
+name: Name
+phone: Phone
+email: Email
+gender: Gender
+icNumber: IcNumber
+birthday: Birthday
+age: Age
+address: Address
+priority: Priority
+assignedDepartment: AssignedDepartment
+record: Record
+}
+
+AddressBook *-right-> "1" UniquePatientList
 AddressBook *-right-> "1" UniqueTagList
-UniqueTagList -[hidden]down- UniquePersonList
-UniqueTagList -[hidden]down- UniquePersonList
+UniqueTagList -[hidden]down- UniquePatientList
+UniqueTagList -[hidden]down- UniquePatientList
 
 UniqueTagList -right-> "*" Tag
-UniquePersonList -right-> Person
+UniquePatientList -right-> Patient
 
-Person -up-> "*" Tag
-
-Person *--> Name
-Person *--> Phone
-Person *--> Email
-Person *--> Address
+Patient -up-> "*" Tag
 @enduml

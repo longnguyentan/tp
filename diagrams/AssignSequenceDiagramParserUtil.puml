@@ -1,0 +1,58 @@
+@startuml
+!include style.puml
+skinparam ArrowFontStyle plain
+skinparam sequenceReferenceBackgroundColor white
+
+mainframe **sd** Create IcNumber and AssignedDepartment objects from string input
+
+box Logic LOGIC_COLOR_T1
+participant "AssignCommandParser" as AssignCommandParser LOGIC_COLOR
+participant "ParserUtil" as ParserUtil <<class>> LOGIC_COLOR
+end box
+
+box Model MODEL_COLOR_T1
+participant "icNumber:IcNumber" as IcNumber MODEL_COLOR
+participant "AssignedDepartment" as AssignedDepartment <<class>> MODEL_COLOR
+participant "Department" as Department <<enumeration>> MODEL_COLOR
+participant "department:AssignedDepartment" as assignedDepartment MODEL_COLOR
+end box
+
+AssignCommandParser ->  ParserUtil : parseIcNumber("t0123456s")
+activate ParserUtil
+
+create IcNumber
+ParserUtil ->  IcNumber
+activate IcNumber
+
+IcNumber -->  ParserUtil
+deactivate IcNumber
+
+ParserUtil -->  AssignCommandParser : icNumber
+deactivate ParserUtil
+
+AssignCommandParser ->  ParserUtil : parseAssignedDepartment("cardiology")
+activate ParserUtil
+
+ParserUtil -> AssignedDepartment : isValidDepartment("cardiology")
+activate AssignedDepartment
+
+AssignedDepartment -> Department : isValidDepartment("cardiology")
+activate Department
+
+Department --> AssignedDepartment
+deactivate Department
+
+AssignedDepartment --> ParserUtil
+deactivate AssignedDepartment
+
+create assignedDepartment
+ParserUtil -> assignedDepartment
+activate assignedDepartment
+
+assignedDepartment --> ParserUtil
+deactivate assignedDepartment
+
+ParserUtil -->  AssignCommandParser : department
+deactivate ParserUtil
+
+@enduml

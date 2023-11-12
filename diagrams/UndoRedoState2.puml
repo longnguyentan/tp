@@ -1,10 +1,11 @@
 @startuml
 !include style.puml
+!pragma layout smetana
 skinparam ClassFontColor #000000
 skinparam ClassBorderColor #000000
 skinparam ClassBackgroundColor #FFFFAA
 
-title After command "add n/David"
+title After command "add n/John Doe i/T1234567A"
 
 package States <<rectangle>> {
     class State1 as "<u>ab0:AddressBook</u>"

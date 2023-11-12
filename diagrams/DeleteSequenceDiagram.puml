@@ -14,10 +14,11 @@ box Model MODEL_COLOR_T1
 participant ":Model" as Model MODEL_COLOR
 end box
 
-[-> LogicManager : execute("delete 1")
+[-> LogicManager : execute("delete i/T0000000A")
+'delete patient with Ic number T0000000A
 activate LogicManager
 
-LogicManager -> AddressBookParser : parseCommand("delete 1")
+LogicManager -> AddressBookParser : parseCommand("delete i/T0000000A")
 activate AddressBookParser
 
 create DeleteCommandParser
@@ -27,7 +28,7 @@ activate DeleteCommandParser
 DeleteCommandParser --> AddressBookParser
 deactivate DeleteCommandParser
 
-AddressBookParser -> DeleteCommandParser : parse("1")
+AddressBookParser -> DeleteCommandParser : parse("i/T0000000A")
 activate DeleteCommandParser
 
 create DeleteCommand
@@ -39,7 +40,7 @@ deactivate DeleteCommand
 
 DeleteCommandParser --> AddressBookParser : d
 deactivate DeleteCommandParser
-'Hidden arrow to position the destroy marker below the end of the activation bar.
+'Hidden arrow to position the destroy-marker below the end of the activation bar.
 DeleteCommandParser -[hidden]-> AddressBookParser
 destroy DeleteCommandParser
 
@@ -49,7 +50,10 @@ deactivate AddressBookParser
 LogicManager -> DeleteCommand : execute()
 activate DeleteCommand
 
-DeleteCommand -> Model : deletePerson(1)
+DeleteCommand -> Model : getPatient(new IcNumber("T0000000A"), List<Patient> patientList)
+'obtain patient to be deleted using getPatient() method)
+
+Model -> Model : deletePatient(patient, deleteCommand)
 activate Model
 
 Model --> DeleteCommand

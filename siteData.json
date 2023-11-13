@@ -194,7 +194,13 @@
       "src": "team/longnguyentan.md",
       "headings": {
         "long-s-project-portfolio-page": "Long's Project Portfolio Page",
-        "project-advanced-and-amp-efficient-a-and-amp-e": "Project: Advanced&amp;Efficient (A&amp;E)"
+        "project-advanced-and-amp-efficient-a-and-amp-e": "Project: Advanced&amp;Efficient (A&amp;E)",
+        "new-features": "New Features",
+        "enhancement-to-existing-features": "Enhancement to existing features:",
+        "contributions-to-the-ug": "Contributions to the UG:",
+        "contributions-to-the-dg": "Contributions to the DG:",
+        "contributions-to-team-based-tasks": "Contributions to team-based tasks:",
+        "review-mentoring-contributions": "Review/mentoring contributions:"
       },
       "headingKeywords": {}
     },
